@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_Cager2808_Namste_React_Dev_1703843962800-pr-trigger-input-set
+  identifier: Build_Cager2808_Namste_React_Dev_1703843962800prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: NamsteReactDev
+  pipeline:
+    identifier: Build_Cager2808_Namste_React_Dev_1703843962800
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
