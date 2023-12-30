@@ -28,25 +28,15 @@ pipeline:
                   name: Upload and Build
                   identifier: Upload_and_Build
                   steps:
-                    - parallel:
-                        - step:
-                            type: S3Upload
-                            name: Artifacts_S3
-                            identifier: Artifacts_S3
-                            spec:
-                              connectorRef: awsreactharness
-                              region: ap-south-1
-                              bucket: react-app-artifacts-demo
-                              sourcePath: Artifacts/
-                        - step:
-                            type: BuildAndPushDockerRegistry
-                            name: BuildAndPushDockerRegistry
-                            identifier: BuildAndPushDockerRegistry
-                            spec:
-                              connectorRef: account.harnessImage
-                              repo: singha07/react-app-harness/
-                              tags:
-                                - lastest
+                    - step:
+                        type: BuildAndPushDockerRegistry
+                        name: BuildAndPushDockerRegistry
+                        identifier: BuildAndPushDockerRegistry
+                        spec:
+                          connectorRef: account.harnessImage
+                          repo: singha07/react-app-harness/
+                          tags:
+                            - lastest
               - step:
                   type: Run
                   name: npm_build
