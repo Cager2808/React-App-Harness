@@ -66,4 +66,8 @@ pipeline:
           runtime:
             type: Cloud
             spec: {}
+          caching:
+            enabled: true
+            paths: []
         type: CI
+        description: ""
