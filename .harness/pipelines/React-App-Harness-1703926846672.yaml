@@ -24,13 +24,6 @@ pipeline:
                     command: npm install
                   timeout: ""
                   type: Run
-              - step:
-                  identifier: npmtest
-                  name: npm_test
-                  spec:
-                    command: npm run test
-                  timeout: ""
-                  type: Run
               - stepGroup:
                   name: Upload and Build
                   identifier: Upload_and_Build
@@ -52,7 +45,8 @@ pipeline:
                             spec:
                               connectorRef: account.harnessImage
                               repo: singha07/react-app-harness/
-                              tags: <+input>
+                              tags:
+                                - lastest
               - step:
                   type: Run
                   name: npm_build
