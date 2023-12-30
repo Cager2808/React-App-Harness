@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_Cager2808_React_App_Harness_1703926850297-pr-trigger-input-set
+  identifier: Build_Cager2808_React_App_Harness_1703926850297prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: ReactAppHarness
+  pipeline:
+    identifier: Build_Cager2808_React_App_Harness_1703926850297
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
