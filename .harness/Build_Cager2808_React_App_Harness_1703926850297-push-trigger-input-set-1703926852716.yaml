@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_Cager2808_React_App_Harness_1703926850297-push-trigger-input-set
+  identifier: Build_Cager2808_React_App_Harness_1703926850297pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: ReactAppHarness
+  pipeline:
+    identifier: Build_Cager2808_React_App_Harness_1703926850297
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
