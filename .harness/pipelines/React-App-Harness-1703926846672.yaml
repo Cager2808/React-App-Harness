@@ -31,21 +31,39 @@ pipeline:
                     command: npm run test
                   timeout: ""
                   type: Run
+              - stepGroup:
+                  name: Upload and Build
+                  identifier: Upload_and_Build
+                  steps:
+                    - parallel:
+                        - step:
+                            type: S3Upload
+                            name: Artifacts_S3
+                            identifier: Artifacts_S3
+                            spec:
+                              connectorRef: awsreactharness
+                              region: ap-south-1
+                              bucket: react-app-artifacts-demo
+                              sourcePath: Artifacts/
+                        - step:
+                            type: BuildAndPushDockerRegistry
+                            name: BuildAndPushDockerRegistry
+                            identifier: BuildAndPushDockerRegistry
+                            spec:
+                              connectorRef: account.harnessImage
+                              repo: singha07/react-app-harness/
+                              tags: <+input>
               - step:
-                  identifier: dockerbuild
-                  name: docker_build
+                  type: Run
+                  name: npm_build
+                  identifier: npm_build
                   spec:
-                    image: plugins/docker
-                    settings:
-                      dry_run: "true"
-                      repo: hello/world
-                      tags: latest
-                  timeout: ""
-                  type: Plugin
+                    shell: Sh
+                    command: npm build
           platform:
-            arch: Amd64
             os: Linux
+            arch: Amd64
           runtime:
-            spec: {}
             type: Cloud
+            spec: {}
         type: CI
