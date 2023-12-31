@@ -24,19 +24,6 @@ pipeline:
                     command: npm install
                   timeout: ""
                   type: Run
-              - stepGroup:
-                  name: Upload and Build
-                  identifier: Upload_and_Build
-                  steps:
-                    - step:
-                        type: BuildAndPushDockerRegistry
-                        name: BuildAndPushDockerRegistry
-                        identifier: BuildAndPushDockerRegistry
-                        spec:
-                          connectorRef: account.harnessImage
-                          repo: singha07/react-app-harness/
-                          tags:
-                            - lastest
               - step:
                   type: Run
                   name: npm_build
