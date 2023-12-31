@@ -26,11 +26,11 @@ pipeline:
                   type: Run
               - step:
                   type: Run
-                  name: npm_build
-                  identifier: npm_build
+                  name: npm_test
+                  identifier: npm_test
                   spec:
                     shell: Sh
-                    command: npm build
+                    command: npm test
           platform:
             os: Linux
             arch: Amd64
