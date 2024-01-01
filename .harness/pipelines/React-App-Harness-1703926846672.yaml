@@ -26,12 +26,19 @@ pipeline:
                   type: Run
               - step:
                   type: Run
-                  name: Run_2
+                  name: npm_build
                   identifier: Run_2
                   spec:
                     shell: Sh
+                    command: npm run build
+              - step:
+                  type: Run
+                  name: cd
+                  identifier: cd
+                  spec:
+                    shell: Sh
                     command: |-
-                      cd /harness 
+                      cd /harness
                       ls
           platform:
             os: Linux
