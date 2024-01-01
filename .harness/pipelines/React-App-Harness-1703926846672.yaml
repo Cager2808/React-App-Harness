@@ -25,14 +25,14 @@ pipeline:
                   timeout: ""
                   type: Run
               - step:
-                  type: BuildAndPushDockerRegistry
-                  name: Build_And_Push_to_Docker
-                  identifier: Build_And_Push_to_Docker
+                  type: Run
+                  name: Run_2
+                  identifier: Run_2
                   spec:
-                    connectorRef: account.harnessImage
-                    repo: /singha07/react-app-harness/
-                    tags:
-                      - latest
+                    shell: Sh
+                    command: |-
+                      cd /harness 
+                      ls
           platform:
             os: Linux
             arch: Amd64
