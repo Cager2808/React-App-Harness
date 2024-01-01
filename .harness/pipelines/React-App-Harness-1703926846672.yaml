@@ -25,12 +25,14 @@ pipeline:
                   timeout: ""
                   type: Run
               - step:
-                  type: Run
-                  name: npm_test
-                  identifier: npm_test
+                  type: BuildAndPushDockerRegistry
+                  name: Build_And_Push_to_Docker
+                  identifier: Build_And_Push_to_Docker
                   spec:
-                    shell: Sh
-                    command: npm test
+                    connectorRef: account.harnessImage
+                    repo: /singha07/react-app-harness/
+                    tags:
+                      - latest
           platform:
             os: Linux
             arch: Amd64
